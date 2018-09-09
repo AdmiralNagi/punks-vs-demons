@@ -5,7 +5,7 @@ AudioMixerController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Metronome
+  m_Name: Song
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
@@ -15,7 +15,11 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters: []
-  m_AudioMixerGroupViews: []
+  m_AudioMixerGroupViews:
+  - guids:
+    - fb0bdbd48df1b1c49bb1264f897b0d60
+    - 53f4b27e7a0b1724085458610bad5c21
+    name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
@@ -26,7 +30,8 @@ AudioMixerGroupController:
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: fb0bdbd48df1b1c49bb1264f897b0d60
-  m_Children: []
+  m_Children:
+  - {fileID: 243173089642992420}
   m_Volume: 0699109604fae2846b382ae1eadd8c89
   m_Pitch: 1ffb00b924043014ebfab2c6880f5942
   m_Effects:
@@ -58,3 +63,33 @@ AudioMixerSnapshotController:
   m_SnapshotID: 867b09dc3004486429786306a2b9bb1c
   m_FloatValues: {}
   m_TransitionOverrides: {}
+--- !u!243 &243173089642992420
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Metronome
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 53f4b27e7a0b1724085458610bad5c21
+  m_Children: []
+  m_Volume: 415320b89a7019148b31056058ca189a
+  m_Pitch: e838292e52479f34fb896eeef6a97fd1
+  m_Effects:
+  - {fileID: 244713073698211956}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &244713073698211956
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 498fdd004ef93df47be6846009dd5b23
+  m_EffectName: Attenuation
+  m_MixLevel: 247d70d8c41172b429a1ea16c126f5dd
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
