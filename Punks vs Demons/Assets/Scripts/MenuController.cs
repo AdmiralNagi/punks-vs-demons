@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
-	[SerializeField]private SongSettings songSettings;
+	private SongSettings songSettings;
 	public Text bpm;
 	public Text beatsPerMeasure;
 
 	// Use this for initialization
 	void Start () {
+		songSettings = GameObject.Find ("SongSettings").GetComponent<SongSettings>();
 		bpm.text = songSettings.bpm.ToString ();
 		beatsPerMeasure.text = songSettings.beatsPerMeasure.ToString ();
 	}
