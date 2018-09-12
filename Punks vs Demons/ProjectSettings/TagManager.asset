@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Goal_SR
+  - Goal_C
+  - Goal_D
+  - Goal_SL
+  - Note
+  - Origin_SR
+  - Origin_C
+  - Origin_D
+  - Origin_SL
+  - DestroyNote
   layers:
   - Default
   - TransparentFX

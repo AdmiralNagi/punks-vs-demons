@@ -13,6 +13,8 @@ public class TrackNote : MonoBehaviour {
 	private int whatColorIndex;
 	Vector3 originPos;
 	Vector3 endPos;
+	bool endReached = false;
+	[SerializeField]private float destroySpeed;
 	float beatsShownEarly;
 	float beatOfThisNote;
 	float trackPosInBeats;
@@ -34,12 +36,23 @@ public class TrackNote : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = Vector3.Lerp (originPos, endPos,
-			(beatsShownEarly - (beatOfThisNote - songManager.trackPosInBeats)) / beatsShownEarly);
+		if (!endReached) {
+			transform.position = Vector3.Lerp (originPos, endPos,
+				(beatsShownEarly - (beatOfThisNote - songManager.trackPosInBeats)) / beatsShownEarly);
+		}
 
 		if (transform.position.Equals (endPos)) {
-			songManager.metronomeClick.Play ();
-			Destroy (gameObject);
+			endReached = true;
+		}
+
+		if (endReached) {
+			transform.position += Vector3.forward * destroySpeed;
+		}
+	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.CompareTag("DestroyNote")){
+			Destroy(gameObject);
 		}
 	}
 }
