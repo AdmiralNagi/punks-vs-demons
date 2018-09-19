@@ -7,6 +7,10 @@ public class SongManager : MonoBehaviour {
 	private SongSettings songSettings;
 	public Transform[] originPositions;
 	public Transform[] endPositions;
+	public Transform spawnPosition;
+
+	public List<GameObject>[] LaneNotes;
+
 	//current position in seconds
 	float trackPosistion;
 	//current position in beats
@@ -17,6 +21,7 @@ public class SongManager : MonoBehaviour {
 	float dsptimesong;
 	//how many beats are previewed
 	public float beatsShownEarly;
+	public float spawnTime;
 
 	public float bpm = 120;
 	public float[] notes;
@@ -25,6 +30,7 @@ public class SongManager : MonoBehaviour {
 	//prototyping purposes
 	public float trackLengthInMin;
 	public GameObject note;
+	public AudioSource song;
 	[SerializeField]private float beatsPerMeasure = 4;
 
 	void Awake(){
@@ -36,30 +42,38 @@ public class SongManager : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		
+		LaneNotes = new List<GameObject>[4];
+		for (int i = 0; i < LaneNotes.Length; i++) {
+			LaneNotes[i] = new List<GameObject>();
+		}
 
 		secPerBeat = 60f / bpm;
 		beatsShownEarly = 10;
 
 		dsptimesong = (float)AudioSettings.dspTime;
 
-		//prototyping purposes
-		notes = new float[(int)(bpm*(trackLengthInMin * beatsPerMeasure))];
-		for (int x = 0; x < notes.Length; x++) {
-			notes [x] = (float)(x) * beatsPerMeasure + beatsShownEarly - beatsPerMeasure + 1.0f;
+		if (songSettings.fashionPunk == false) {
+			//prototyping purposes
+			notes = new float[(int)(bpm * (trackLengthInMin * beatsPerMeasure))];
+			for (int x = 0; x < notes.Length; x++) {
+				notes [x] = (float)(x) * beatsPerMeasure + beatsShownEarly - beatsPerMeasure + 1.0f;
+			}
+		} else if (songSettings.fashionPunk == true) {
+			notes = song.GetComponent<FashionPunk> ().fashionPunkBeats;
+			song.Play ();
 		}
-		//
-
-		//GetComponent<AudioSource> ().Play ();
 	}
 		
 	// Update is called once per frame
 	void Update () {
 		trackPosistion = (float)(AudioSettings.dspTime - dsptimesong);
 
-		if (noteIndex < notes.Length && notes [noteIndex] < trackPosInBeats + beatsShownEarly) {
-			Instantiate (note);
-
+		if (noteIndex < notes.Length && notes [noteIndex] < trackPosInBeats + beatsShownEarly + spawnTime) {
+			GameObject newNote = Instantiate (note);
+			//int listIndex = note.GetComponent<TrackNote> ().WhatColorIndex;
+			int listIndex = newNote.GetComponent<TrackNote>().WhatColorIndex;
+			Debug.Log (listIndex.ToString ());
+			LaneNotes [listIndex].Add (newNote);
 			noteIndex++;
 		}
 

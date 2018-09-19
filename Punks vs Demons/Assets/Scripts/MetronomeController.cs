@@ -7,11 +7,18 @@ public class MetronomeController : MonoBehaviour {
 	
 	[SerializeField]private SongManager songManager;
 	[SerializeField]private AudioSource[] metronomeClicks;
+	[SerializeField]private SongSettings songSettings;
 	private int audioIndex;
 
 	private float bpm;
 	private float spb;
 	private double nextClick;
+
+	void Awake(){
+		if (GameObject.Find ("SongSettings") != null) {
+			songSettings = GameObject.Find ("SongSettings").GetComponent<SongSettings> ();
+		}
+	}
 
 	void Start(){
 		audioIndex = 0;
@@ -23,15 +30,17 @@ public class MetronomeController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		double time = AudioSettings.dspTime;
-		if (time + spb > nextClick) {
-			//Debug.Log ("click");
-			metronomeClicks[audioIndex].PlayScheduled (nextClick);
-			audioIndex++;
-			if (audioIndex >= metronomeClicks.Length) {
-				audioIndex = 0;
+		if (songSettings.fashionPunk == false) {
+			double time = AudioSettings.dspTime;
+			if (time + spb > nextClick) {
+				//Debug.Log ("click");
+				metronomeClicks [audioIndex].PlayScheduled (nextClick);
+				audioIndex++;
+				if (audioIndex >= metronomeClicks.Length) {
+					audioIndex = 0;
+				}
+				nextClick += spb;
 			}
-			nextClick += spb;
 		}
 	}		
 }

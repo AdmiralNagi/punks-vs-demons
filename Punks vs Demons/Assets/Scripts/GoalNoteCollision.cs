@@ -6,6 +6,7 @@ public class GoalNoteCollision : MonoBehaviour {
 
 	private bool onGoal = false;
 	public bool OnGoal {
+		set{ onGoal = value; }
 		get{ return onGoal;}
 	}
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SongSettings : MonoBehaviour {
 	
 	private static bool created = false;
+	public bool fashionPunk = false;
 
 	void Awake(){
 		if (!created) {

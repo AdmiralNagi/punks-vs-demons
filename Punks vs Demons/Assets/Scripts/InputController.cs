@@ -6,65 +6,87 @@ using UnityEngine.UI;
 public class InputController : MonoBehaviour {
 
 	[SerializeField]private GoalNoteCollision noteLocation;
-	public Text resultText; 
-	private string lanePosition;
-	private Vector2 touchOrigin = -Vector2.one;
+	private int laneIndex;
+	public Text resultText;
+	[SerializeField]private SongManager songManager;
 
 	// Use this for initialization
 	void Start () {
 		resultText.text = "";
-		lanePosition = gameObject.tag.Substring (6);
+		laneIndex = int.Parse (noteLocation.gameObject.name);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		#if UNITY_STANDALONE || UNITY_EDITOR
+//		#if UNITY_STANDALONE || UNITY_EDITOR
+//
+//		if (Input.GetMouseButtonDown(0)){
+//			RaycastHit hit;
+//			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+//
+//			if (Physics.Raycast(ray, out hit, 100.0f)){
+//				if (hit.collider.tag.Contains("End_" + lanePosition)){
+//					if (noteLocation.OnGoal){
+//						resultText.color = Color.green;
+//						resultText.text = "GOOD";
+//						StartCoroutine("TextFlash");
+//					}
+//					else{
+//						resultText.color = Color.red;
+//						resultText.text = "BAD";
+//						StartCoroutine("TextFlash");
+//					}
+//				}
+//			}
+//		}
+//
+//		#else
+//
+//		if(Input.touchCount > 0 ){
+//			Touch myTouch = Input.touches[0];
+//
+//			if (myTouch.phase == TouchPhase.Began){
+//				RaycastHit hit;
+//				Ray ray = Camera.main.ScreenPointToRay(myTouch.position);
+//
+//				if (Physics.Raycast(ray, out hit, 100.0f)){
+//					if (hit.collider.tag.Contains("Origin" + lanePosition)){
+//						if (noteLocation.OnGoal){
+//							resultText.color = Color.green;
+//							resultText.text = "GOOD";
+//						}
+//						else{
+//							resultText.color = Color.red;
+//							resultText.text = "BAD";
+//						}
+//					}
+//				}
+//			}
+//		}
+//
+//		#endif
+	}
 
-		if (Input.GetMouseButtonDown(0)){
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			if (Physics.Raycast(ray, out hit, 100.0f)){
-				if (hit.collider.tag.Contains("Origin" + lanePosition)){
-					if (noteLocation.OnGoal){
-						resultText.color = Color.green;
-						resultText.text = "GOOD";
-						StartCoroutine("TextFlash");
-					}
-					else{
-						resultText.color = Color.red;
-						resultText.text = "BAD";
-						StartCoroutine("TextFlash");
-					}
-				}
-			}
+	public void LaneButtonPress(){
+		if (noteLocation.OnGoal){
+			resultText.color = Color.green;
+			resultText.text = "GOOD";
+			StartCoroutine("TextFlash");
+		}
+		else{
+			resultText.color = Color.red;
+			resultText.text = "BAD";
+			StartCoroutine("TextFlash");
 		}
 
-		#else
-
-		if(Input.touchCount > 0 ){
-			Touch myTouch = Input.touches[0];
-
-			if (myTouch.phase == TouchPhase.Began){
-				RaycastHit hit;
-				Ray ray = Camera.main.ScreenPointToRay(myTouch.position);
-
-				if (Physics.Raycast(ray, out hit, 100.0f)){
-					if (hit.collider.tag.Contains("Origin" + lanePosition)){
-						if (noteLocation.OnGoal){
-							resultText.color = Color.green;
-							resultText.text = "GOOD";
-						}
-						else{
-							resultText.color = Color.red;
-							resultText.text = "BAD";
-						}
-					}
-				}
-			}
+		if (songManager.LaneNotes [laneIndex].Count > 0) {
+			Debug.Log (laneIndex.ToString ());
+			GameObject noteToDestroy = songManager.LaneNotes [laneIndex] [0].gameObject;
+			songManager.LaneNotes [laneIndex].RemoveAt(0);
+			Destroy (noteToDestroy);
+			noteLocation.OnGoal = false;
 		}
 
-		#endif
 	}
 
 	IEnumerator TextFlash(){

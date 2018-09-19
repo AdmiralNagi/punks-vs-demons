@@ -7,12 +7,14 @@ public class MenuController : MonoBehaviour {
 	private SongSettings songSettings;
 	public Text bpm;
 	public Text beatsPerMeasure;
+	public Text songButton;
 
 	// Use this for initialization
 	void Start () {
 		songSettings = GameObject.Find ("SongSettings").GetComponent<SongSettings>();
 		bpm.text = songSettings.bpm.ToString ();
 		beatsPerMeasure.text = songSettings.beatsPerMeasure.ToString ();
+		songButton.text = songSettings.fashionPunk.ToString();
 	}
 	
 	// Update is called once per frame
@@ -22,7 +24,7 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void BpmUp(){
-		if(songSettings.bpm < 140){
+		if(songSettings.bpm < 240){
 			songSettings.bpm++;
 		}
 	}
@@ -43,5 +45,12 @@ public class MenuController : MonoBehaviour {
 		if(songSettings.beatsPerMeasure > 1){
 			songSettings.beatsPerMeasure--;
 		}
+	}
+
+	public void PlaySong(){
+		songSettings.bpm = 200;
+		songSettings.beatsPerMeasure = 1;
+		songSettings.fashionPunk = !(songSettings.fashionPunk);
+		songButton.text = songSettings.fashionPunk.ToString ();
 	}
 }

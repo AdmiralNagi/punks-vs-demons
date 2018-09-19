@@ -119,6 +119,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 40d48a9cc5233444fbe0be4b2e8a960c, type: 2}
   - {fileID: 2100000, guid: 5e9933a423cdc5545bd7fb31ed7ee67e, type: 2}
   - {fileID: 2100000, guid: 74d9638a94f1e084fbfa5a334cee5460, type: 2}
+  noteColor: []
   destroySpeed: 0.03
 --- !u!136 &136043091546166998
 CapsuleCollider:
