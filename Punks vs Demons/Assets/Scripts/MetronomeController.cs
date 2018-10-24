@@ -10,7 +10,7 @@ public class MetronomeController : MonoBehaviour {
 	[SerializeField]private SongSettings songSettings;
 	private int audioIndex;
 
-	private float bpm;
+	private float bpm = 120f;
 	private float spb;
 	private double nextClick;
 
@@ -30,7 +30,7 @@ public class MetronomeController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (songSettings.fashionPunk == false) {
+		if (!songSettings || songSettings.fashionPunk == false) {
 			double time = AudioSettings.dspTime;
 			if (time + spb > nextClick) {
 				//Debug.Log ("click");

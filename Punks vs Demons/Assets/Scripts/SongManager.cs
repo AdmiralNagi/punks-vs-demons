@@ -52,7 +52,7 @@ public class SongManager : MonoBehaviour {
 
 		dsptimesong = (float)AudioSettings.dspTime;
 
-		if (songSettings.fashionPunk == false) {
+		if (!songSettings || songSettings.fashionPunk == false) {
 			//prototyping purposes
 			notes = new float[(int)(bpm * (trackLengthInMin * beatsPerMeasure))];
 			for (int x = 0; x < notes.Length; x++) {
@@ -72,7 +72,7 @@ public class SongManager : MonoBehaviour {
 			GameObject newNote = Instantiate (note);
 			//int listIndex = note.GetComponent<TrackNote> ().WhatColorIndex;
 			int listIndex = newNote.GetComponent<TrackNote>().WhatColorIndex;
-			Debug.Log (listIndex.ToString ());
+			//Debug.Log (listIndex.ToString ());
 			LaneNotes [listIndex].Add (newNote);
 			noteIndex++;
 		}
