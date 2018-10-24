@@ -54,7 +54,7 @@ public class SongManager : MonoBehaviour {
 
 		if (!songSettings || songSettings.fashionPunk == false) {
 			//prototyping purposes
-			notes = new float[(int)(bpm * (trackLengthInMin * beatsPerMeasure))];
+			notes = new float[(int)((bpm * trackLengthInMin) / beatsPerMeasure)];
 			for (int x = 0; x < notes.Length; x++) {
 				notes [x] = (float)(x) * beatsPerMeasure + beatsShownEarly - beatsPerMeasure + 1.0f;
 			}
