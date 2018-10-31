@@ -25,7 +25,7 @@ public class MetronomeController : MonoBehaviour {
 		bpm = songManager.bpm;
 		spb = 60.0f / bpm;
 		nextClick = AudioSettings.dspTime + spb * songManager.beatsShownEarly + spb;
-		Debug.Log (nextClick.ToString ());
+//		Debug.Log (nextClick.ToString ());
 	}
 
 	// Update is called once per frame

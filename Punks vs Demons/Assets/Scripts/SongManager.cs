@@ -7,6 +7,7 @@ public class SongManager : MonoBehaviour {
 	private SongSettings songSettings;
 	public Transform[] originPositions;
 	public Transform[] endPositions;
+	public Transform[] bandMember;
 	public Transform spawnPosition;
 
 	public List<GameObject>[] LaneNotes;

@@ -11,7 +11,10 @@ public class InputController : MonoBehaviour {
 	public Text resultText;
 	[SerializeField]private SongManager songManager;
 	[SerializeField]private MemberHealth health;
+	[SerializeField]private MemberSpecial sp;
 	[SerializeField]private Button thisButton;
+	[SerializeField]private GameObject timingRing;
+	[SerializeField]private GameObject badTimingRing;
 
 	// Use this for initialization
 	void Start () {
@@ -23,15 +26,18 @@ public class InputController : MonoBehaviour {
 	void Update () {
 		if (health.CurrentHealth <= 0) {
 			thisButton.interactable = false;
-		} else {
+		} else if (health.CurrentHealth >= health.MaxHealth){
 			thisButton.interactable = true;
 		}
 	}
 
 	public void LaneButtonPress(){
 		if (noteLocation.OnGoal){
-			resultText.color = Color.green;
-			resultText.text = "GOOD";
+			//resultText.text = "GOOD";
+			if (sp.SpecialValue < sp.MaxSpecial) {
+				sp.SpecialValue++;
+			}
+			timingRing.SetActive(true);
 			StartCoroutine("TextFlash");
 
 			if (punksDemonRatio.Punks < 99) {
@@ -49,7 +55,7 @@ public class InputController : MonoBehaviour {
 		}
 		else{
 			resultText.color = Color.red;
-			resultText.text = "BAD";
+			badTimingRing.SetActive (true);
 			StartCoroutine("TextFlash");
 
 			if (punksDemonRatio.Demons < 99) {
@@ -62,6 +68,8 @@ public class InputController : MonoBehaviour {
 
 	IEnumerator TextFlash(){
 		yield return new WaitForSeconds (0.25f);
-		resultText.text = "";
+		//resultText.text = "";
+		badTimingRing.SetActive(false);
+		timingRing.SetActive (false);
 	}
 }

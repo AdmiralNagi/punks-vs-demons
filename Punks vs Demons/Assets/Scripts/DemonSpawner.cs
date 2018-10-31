@@ -33,7 +33,7 @@ public class DemonSpawner : MonoBehaviour {
 				GameObject toDelete = DemonList [0];
 				DemonList.RemoveAt (0);
 				Destroy (toDelete);
-				Debug.Log (DemonList.Count.ToString ());
+				//Debug.Log (DemonList.Count.ToString ());
 			} 
 		}
 	}

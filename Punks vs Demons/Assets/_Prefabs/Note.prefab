@@ -114,13 +114,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songManager: {fileID: 114400368612181332, guid: 7918898d61c47f346910fb1cfced7a58,
     type: 2}
-  noteColors:
-  - {fileID: 2100000, guid: 99ea2892a0dc63e419eaba17b6fa4115, type: 2}
-  - {fileID: 2100000, guid: 40d48a9cc5233444fbe0be4b2e8a960c, type: 2}
-  - {fileID: 2100000, guid: 5e9933a423cdc5545bd7fb31ed7ee67e, type: 2}
-  - {fileID: 2100000, guid: 74d9638a94f1e084fbfa5a334cee5460, type: 2}
   noteColor: []
-  destroySpeed: 0.03
+  spawnPos: {x: 0, y: 0, z: 0}
+  destroySpeed: 100
+  destroyTime: 0.5
 --- !u!136 &136043091546166998
 CapsuleCollider:
   m_ObjectHideFlags: 1

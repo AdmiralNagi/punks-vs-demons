@@ -17,6 +17,7 @@ public class TrackNote : MonoBehaviour {
 
 	Vector3 originPos;
 	Vector3 endPos;
+	Vector3 bandMemberPosition;
 	[SerializeField]Vector3 spawnPos;
 	bool endReached = false;
 	bool originReached = false;
@@ -40,16 +41,17 @@ public class TrackNote : MonoBehaviour {
 			beatOfThisNote = songManager.notes [songManager.noteIndex];
 
 		//gameObject.GetComponent<Renderer> ().material = noteColors [whatColorIndex];
-		gameObject.GetComponent<SpriteRenderer>().sprite = noteColor[whatColorIndex];
+		gameObject.GetComponentInChildren<SpriteRenderer>().sprite = noteColor[whatColorIndex];
 
 		originPos = songManager.originPositions [whatColorIndex].position;
 		endPos = songManager.endPositions [whatColorIndex].position;
+		bandMemberPosition = songManager.bandMember [whatColorIndex].position;
 		spawnPos = songManager.spawnPosition.position;
 		transform.position = spawnPos;
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		MoveNote ();
 	}
 
@@ -60,6 +62,8 @@ public class TrackNote : MonoBehaviour {
 		}
 	}
 
+	float currentDestroyTime;
+	[SerializeField]private float destroyTime;
 	void MoveNote () {
 		if (!endReached && originReached) {
 			transform.position = Vector3.Lerp (originPos, endPos,
@@ -68,13 +72,22 @@ public class TrackNote : MonoBehaviour {
 			transform.position = Vector3.Lerp (spawnPos, originPos, 
 				(spawnTime - (beatOfThisNote - beatsShownEarly - songManager.trackPosInBeats)) / spawnTime);
 		} else if (endReached) {
-			transform.position += Vector3.forward * destroySpeed;
-		}
+			
+			currentDestroyTime += Time.deltaTime;
+			if (currentDestroyTime > destroyTime) {
+				currentDestroyTime = destroyTime;
+			}
 
+			transform.position = Vector3.Lerp (endPos, bandMemberPosition, currentDestroyTime/destroyTime);
+		}
+			
 		if (transform.position.Equals (endPos)) {
-			endReached = true;
+			if (!endReached) {
+				currentDestroyTime = 0f;
+				endReached = true;
+			}
 		}
-
+			
 		if (transform.position.Equals (originPos)) {
 			originReached = true;
 		}		
