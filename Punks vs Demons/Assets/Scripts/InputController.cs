@@ -33,7 +33,8 @@ public class InputController : MonoBehaviour {
 
 	public void LaneButtonPress(){
 		if (noteLocation.OnGoal){
-			//resultText.text = "GOOD";
+			resultText.color = Color.green;
+			resultText.text = "GOOD";
 			if (sp.SpecialValue < sp.MaxSpecial) {
 				sp.SpecialValue++;
 			}
@@ -46,7 +47,6 @@ public class InputController : MonoBehaviour {
 			}
 
 			if (songManager.LaneNotes [laneIndex].Count > 0) {
-				//Debug.Log (laneIndex.ToString ());
 				GameObject noteToDestroy = songManager.LaneNotes [laneIndex] [0].gameObject;
 				songManager.LaneNotes [laneIndex].RemoveAt(0);
 				Destroy (noteToDestroy);
@@ -55,6 +55,7 @@ public class InputController : MonoBehaviour {
 		}
 		else{
 			resultText.color = Color.red;
+			resultText.text = "BAD";
 			badTimingRing.SetActive (true);
 			StartCoroutine("TextFlash");
 
@@ -68,7 +69,7 @@ public class InputController : MonoBehaviour {
 
 	IEnumerator TextFlash(){
 		yield return new WaitForSeconds (0.25f);
-		//resultText.text = "";
+		resultText.text = "";
 		badTimingRing.SetActive(false);
 		timingRing.SetActive (false);
 	}

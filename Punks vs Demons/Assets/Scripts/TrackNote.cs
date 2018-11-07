@@ -66,13 +66,13 @@ public class TrackNote : MonoBehaviour {
 	[SerializeField]private float destroyTime;
 	void MoveNote () {
 		if (!endReached && originReached) {
-			transform.position = Vector3.Lerp (originPos, endPos,
-				(beatsShownEarly - (beatOfThisNote - songManager.trackPosInBeats)) / beatsShownEarly);
+			float perc = (beatsShownEarly - (beatOfThisNote - songManager.trackPosInBeats)) / beatsShownEarly;
+			Debug.Log (perc.ToString());
+			transform.position = Vector3.Lerp (originPos, endPos, perc);
 		} else if (!originReached) {
-			transform.position = Vector3.Lerp (spawnPos, originPos, 
-				(spawnTime - (beatOfThisNote - beatsShownEarly - songManager.trackPosInBeats)) / spawnTime);
+			float perc = (spawnTime - (beatOfThisNote - beatsShownEarly - songManager.trackPosInBeats)) / spawnTime;
+			transform.position = Vector3.Lerp (spawnPos, originPos, perc);
 		} else if (endReached) {
-			
 			currentDestroyTime += Time.deltaTime;
 			if (currentDestroyTime > destroyTime) {
 				currentDestroyTime = destroyTime;
