@@ -41,9 +41,9 @@ public class MemberHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (currentHealth >= 10) {
-			hpDisplay.text = (int)currentHealth + "/" + maxHealth;
+			hpDisplay.text = "HP" + (int)currentHealth + "/" + maxHealth;
 		} else {
-			hpDisplay.text = "0" + (int)currentHealth + "/" + maxHealth;
+			hpDisplay.text = "HP 0" + (int)currentHealth + "/" + maxHealth;
 		}
 
 		if (healthBar) {

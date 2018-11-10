@@ -67,7 +67,7 @@ public class TrackNote : MonoBehaviour {
 	void MoveNote () {
 		if (!endReached && originReached) {
 			float perc = (beatsShownEarly - (beatOfThisNote - songManager.trackPosInBeats)) / beatsShownEarly;
-			Debug.Log (perc.ToString());
+//			Debug.Log (perc.ToString());
 			transform.position = Vector3.Lerp (originPos, endPos, perc);
 		} else if (!originReached) {
 			float perc = (spawnTime - (beatOfThisNote - beatsShownEarly - songManager.trackPosInBeats)) / spawnTime;

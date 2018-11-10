@@ -29,9 +29,9 @@ public class MemberSpecial : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (specialValue >= 10) {
-			spDisplay.text = (int)specialValue + "/" + maxSpecial;
+			spDisplay.text = "SP" + (int)specialValue + "/" + maxSpecial;
 		} else {
-			spDisplay.text = "0" + (int)specialValue + "/" + maxSpecial;
+			spDisplay.text = "SP 0" + (int)specialValue + "/" + maxSpecial;
 		}
 
 		specialBar.anchorMax = new Vector2 (specialValue / maxSpecial, 1f);
