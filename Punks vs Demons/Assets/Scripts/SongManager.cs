@@ -75,7 +75,6 @@ public class SongManager : MonoBehaviour {
 			int listIndex = newNote.GetComponent<TrackNote>().WhatColorIndex;
 			//Debug.Log (listIndex.ToString ());
 			LaneNotes [listIndex].Add (newNote);
-			noteIndex++;
 		}
 
 		trackPosInBeats = trackPosistion / secPerBeat;

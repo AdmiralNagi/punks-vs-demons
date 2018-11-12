@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4686171578666754}
   - component: {fileID: 212779633010213892}
+  - component: {fileID: 114677502477546792}
   m_Layer: 0
   m_Name: DemonSprite
   m_TagString: Untagged
@@ -82,7 +83,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1378571584333734}
   m_Enabled: 0
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -143,7 +144,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 2
+  speed: 2.25
+--- !u!114 &114677502477546792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524876116887064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d90df0ad8f2444cb48a73a8cdc7e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 040fa180f9e333449b6e41456b247fe0, type: 3}
+  - {fileID: 21300000, guid: 6ef000a8d39c3ed41a52432c2ab3624d, type: 3}
+  - {fileID: 21300000, guid: 9dde0cd0c56d1bb4ba98f68878e4fb4f, type: 3}
 --- !u!135 &135493190499505700
 SphereCollider:
   m_ObjectHideFlags: 1

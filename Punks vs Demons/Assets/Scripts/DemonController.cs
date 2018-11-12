@@ -15,14 +15,17 @@ public class DemonController : MonoBehaviour {
 		float z_direction = Random.Range(-1f, 1f);
 		rb.AddForce (new Vector3(x_direction, 0, z_direction) * speed, ForceMode.Impulse);
 		lastPosition = transform.position;
+		//Physics.IgnoreLayerCollision (9, 9);
 	}
 	
 	// Update is called once per frame
+	private bool moving = false;
 	void FixedUpdate () {
 		transform.LookAt (player);
 
-		rb.AddRelativeForce((transform.position - lastPosition) * speed, ForceMode.Impulse);
-		lastPosition = transform.position;
-			
+		if (!moving) {
+			rb.AddRelativeForce ((transform.position - lastPosition) * speed, ForceMode.Impulse);
+			lastPosition = transform.position;
+		}
 	}
 }

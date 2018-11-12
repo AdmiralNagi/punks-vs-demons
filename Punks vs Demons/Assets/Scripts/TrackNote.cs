@@ -48,6 +48,7 @@ public class TrackNote : MonoBehaviour {
 		bandMemberPosition = songManager.bandMember [whatColorIndex].position;
 		spawnPos = songManager.spawnPosition.position;
 		transform.position = spawnPos;
+		songManager.noteIndex++;
 	}
 	
 	// Update is called once per frame
