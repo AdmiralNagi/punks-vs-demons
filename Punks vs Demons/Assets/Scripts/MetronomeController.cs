@@ -24,15 +24,15 @@ public class MetronomeController : MonoBehaviour {
 		audioIndex = 0;
 		bpm = songManager.bpm;
 		spb = 60.0f / bpm;
-		nextClick = AudioSettings.dspTime + spb * songManager.beatsShownEarly - spb;
+		nextClick = AudioSettings.dspTime + spb * (songManager.beatsShownEarly - songManager.beatsPerMeasure);
 //		Debug.Log (nextClick.ToString ());
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (!songSettings || songSettings.fashionPunk == false) {
+		if (!songSettings || songSettings.songChosen == false) {
 			double time = AudioSettings.dspTime;
-			if (time + spb > nextClick) {
+			if (time + spb >= nextClick) {
 				//Debug.Log ("click");
 				metronomeClicks [audioIndex].PlayScheduled (nextClick);
 				audioIndex++;

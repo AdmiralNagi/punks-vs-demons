@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BoundaryController : MonoBehaviour {
-	private int punks = 75;
+	private int punks = 50;
 	public int Punks {
 		set { punks = value; }
 		get { return punks; }
 	}
-	private int demons = 25;
+	private int demons = 50;
 	public int Demons {
 		set { demons = value; }
 		get { return demons; }
@@ -21,7 +21,7 @@ public class BoundaryController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float scaler = (float)demons * .05f;
+		float scaler = (float)demons * .025f;
 		if (scaler >= .1) {
 			transform.localScale = new Vector3 (scaler, 1, scaler);
 		}

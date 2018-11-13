@@ -32,7 +32,7 @@ public class SongManager : MonoBehaviour {
 	public float trackLengthInMin;
 	public GameObject note;
 	public AudioSource song;
-	[SerializeField]private float beatsPerMeasure = 4;
+	public float beatsPerMeasure = 4;
 
 	void Awake(){
 		if (GameObject.Find ("SongSettings") != null) {
@@ -53,13 +53,13 @@ public class SongManager : MonoBehaviour {
 
 		dsptimesong = (float)AudioSettings.dspTime;
 
-		if (!songSettings || songSettings.fashionPunk == false) {
+		if (!songSettings || songSettings.songChosen == false) {
 			//prototyping purposes
 			notes = new float[(int)((bpm * trackLengthInMin) / beatsPerMeasure)];
 			for (int x = 0; x < notes.Length; x++) {
-				notes [x] = (float)(x) * beatsPerMeasure + beatsShownEarly - beatsPerMeasure + 1.0f;
+				notes [x] = (float)(x) * beatsPerMeasure + beatsShownEarly - beatsPerMeasure;
 			}
-		} else if (songSettings.fashionPunk == true) {
+		} else if (songSettings.songChosen == true) {
 			notes = song.GetComponent<FashionPunk> ().fashionPunkBeats;
 			song.Play ();
 		}

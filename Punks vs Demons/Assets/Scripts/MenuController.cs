@@ -14,7 +14,7 @@ public class MenuController : MonoBehaviour {
 		songSettings = GameObject.Find ("SongSettings").GetComponent<SongSettings>();
 		bpm.text = songSettings.bpm.ToString ();
 		beatsPerMeasure.text = songSettings.beatsPerMeasure.ToString ();
-		songButton.text = songSettings.fashionPunk.ToString();
+		bpmTemp = songSettings.bpm;
 	}
 	
 	// Update is called once per frame
@@ -48,9 +48,22 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void PlaySong(){
-		songSettings.bpm = 200;
-		songSettings.beatsPerMeasure = 1;
-		songSettings.fashionPunk = !(songSettings.fashionPunk);
-		songButton.text = songSettings.fashionPunk.ToString ();
+		songSettings.songChosen = !(songSettings.songChosen);
+	}
+
+	public GameObject practicePanel;
+	public Text practiceBtnText;
+	private float bpmTemp;
+	public void ActivatePractice(){
+		songSettings.songChosen = !(songSettings.songChosen);
+		practicePanel.SetActive (!(songSettings.songChosen));
+		if (practicePanel.activeInHierarchy) {
+			songSettings.bpm = bpmTemp;
+			practiceBtnText.text = "BACK";
+		} else {
+			bpmTemp = songSettings.bpm;
+			songSettings.bpm = 200f;
+			practiceBtnText.text = "JAM";
+		}
 	}
 }

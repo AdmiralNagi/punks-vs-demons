@@ -15,9 +15,12 @@ public class MemberHealth : MonoBehaviour {
 	private float currentHealth;
 	public float CurrentHealth{
 		get{ return currentHealth; }
+		set{ currentHealth = value; }
 	}
 
 	private bool recharging;
+	private Color originalHealthColor;
+	private Color rechargeColor;
 	private float originalR;
 	private float originalB;
 	private float originalG;
@@ -28,44 +31,85 @@ public class MemberHealth : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		originalColor = memberPanel.color;
 		currentHealth = maxHealth;
 		hpDisplay.text = currentHealth + "/" + maxHealth;
 		if (healthColor) {
-			originalR = healthColor.color.r;
-			originalB = healthColor.color.b;
-			originalG = healthColor.color.g;
-			//Debug.Log (originalB.ToString ());
+			originalHealthColor = healthColor.color;
+			rechargeColor = new Color (rechargeR, rechargeG, rechargeB);
 		}
 	}
-	
-	// Update is called once per frame
+
+
 	void Update () {
+		CheckRegen ();
+		UpdateHealthText ();
+		UpdateHealthBar ();
+	}
+
+	private float timeSinceDamage;
+	[SerializeField]private float regenRate = 1f;
+	void CheckRegen(){
+		if (timeSinceDamage != null) {
+			timeSinceDamage += Time.deltaTime;
+
+			if (timeSinceDamage >= regenRate && currentHealth < maxHealth) {
+				currentHealth++;
+				timeSinceDamage = 0f;
+			}
+		}
+	}
+
+	void UpdateHealthText(){
 		if (currentHealth >= 10) {
 			hpDisplay.text = "HP " + (int)currentHealth + "/" + maxHealth;
 		} else {
 			hpDisplay.text = "HP 0" + (int)currentHealth + "/" + maxHealth;
 		}
-
+	}
+		
+	[SerializeField]private Image memberPanel;
+	private Color originalColor;
+	private bool isFlashing = false;
+	void UpdateHealthBar(){
 		if (healthBar) {
 			if (!recharging) {
 				healthBar.anchorMax = new Vector2 (currentHealth / maxHealth, 1f);
 				if (currentHealth <= 0) {
-					healthColor.color = new Color (rechargeR, rechargeG, rechargeB);
+					healthColor.color = rechargeColor;
+					memberPanel.color = rechargeColor;
 					recharging = true;
+				} else if (!isFlashing && currentHealth <= 3) {
+					memberPanel.color = Color.red;
+					isFlashing = true;
+					StartCoroutine ("LowHealth");
 				}
 			} else if (recharging) {
+				spriteColor.color = Color.black;
 				RechargeLerp ();
 				if (currentHealth >= maxHealth) {
-					healthColor.color = new Color (originalR, originalG, originalB);
+					healthColor.color = originalHealthColor;
+					spriteColor.color = Color.white;
+					memberPanel.color = originalColor;
 					recharging = false;
 				}
 			}
 		}
 	}
 
+	IEnumerator LowHealth(){
+		yield return new WaitForSeconds (.25f);
+		if (!recharging) {
+			memberPanel.color = originalColor;
+		}
+		yield return new WaitForSeconds (.25f);
+		isFlashing = false;
+	}
+
 	void OnTriggerEnter(Collider other){
 		if (other.CompareTag ("Note")) {
 			if (currentHealth > 0 && !recharging) {
+				timeSinceDamage = 0f;
 				currentHealth--;
 				TakeDamage ();
 			}

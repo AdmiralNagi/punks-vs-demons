@@ -398,7 +398,8 @@ MonoBehaviour:
   thisButton: {fileID: 0}
   timingRing: {fileID: 0}
   badTimingRing: {fileID: 0}
-  pyroFlame: {fileID: 82421328259929988, guid: 3d56ae5b7bf54d84cbfed9a16e5dedc4, type: 2}
+  pyroFlame: {fileID: 0}
+  missedClick: {fileID: 0}
 --- !u!114 &114467632708053920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -419,7 +420,8 @@ MonoBehaviour:
   thisButton: {fileID: 0}
   timingRing: {fileID: 0}
   badTimingRing: {fileID: 0}
-  pyroFlame: {fileID: 82421328259929988, guid: 3d56ae5b7bf54d84cbfed9a16e5dedc4, type: 2}
+  pyroFlame: {fileID: 0}
+  missedClick: {fileID: 0}
 --- !u!114 &114519199173361080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +442,8 @@ MonoBehaviour:
   thisButton: {fileID: 0}
   timingRing: {fileID: 0}
   badTimingRing: {fileID: 0}
-  pyroFlame: {fileID: 82421328259929988, guid: 3d56ae5b7bf54d84cbfed9a16e5dedc4, type: 2}
+  pyroFlame: {fileID: 0}
+  missedClick: {fileID: 0}
 --- !u!114 &114608283109366476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -461,7 +464,8 @@ MonoBehaviour:
   thisButton: {fileID: 0}
   timingRing: {fileID: 0}
   badTimingRing: {fileID: 0}
-  pyroFlame: {fileID: 82421328259929988, guid: 3d56ae5b7bf54d84cbfed9a16e5dedc4, type: 2}
+  pyroFlame: {fileID: 0}
+  missedClick: {fileID: 0}
 --- !u!136 &136118901692278362
 CapsuleCollider:
   m_ObjectHideFlags: 1

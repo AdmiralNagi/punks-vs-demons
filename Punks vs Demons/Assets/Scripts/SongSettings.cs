@@ -5,7 +5,8 @@ using UnityEngine;
 public class SongSettings : MonoBehaviour {
 	
 	private static bool created = false;
-	public bool fashionPunk = false;
+	public bool songChosen = true;
+
 
 	void Awake(){
 		if (!created) {
@@ -14,11 +15,11 @@ public class SongSettings : MonoBehaviour {
 		}
 	}
 
-	public float bpm = 120;
+	public float bpm = 140;
 	public float beatsPerMeasure = 4;
 
 	void Start(){
-		bpm = 120;
+		bpm = 200;
 		beatsPerMeasure = 4;
 	}
 }
