@@ -5,16 +5,35 @@ using UnityEngine.UI;
 
 public class VersusText : MonoBehaviour {
 	[SerializeField]private BoundaryController punksDemonRatio;
+	[SerializeField]private RectTransform vsBar;
+	[SerializeField]private Image statusPanel;
+	private Color originalColor;
 
-	// Use this for initialization
 	void Start () {
+		originalColor = statusPanel.color;
 		GetComponent<Text> ().text = "[" + punksDemonRatio.Punks + ":"
 		+ punksDemonRatio.Demons + "]";
+		
 	}
-	
-	// Update is called once per frame
+
+	private bool isFlashing = false;
 	void Update () {
 		GetComponent<Text> ().text = "[" + punksDemonRatio.Punks + ":"
 			+ punksDemonRatio.Demons + "]";
+
+		vsBar.anchorMax = new Vector2 (punksDemonRatio.Punks / 100f, 1f);
+
+		if (!isFlashing && punksDemonRatio.Punks <= 25) {
+			statusPanel.color = new Color (166f / 255f, 0f, 0f, 1f);
+			isFlashing = true;
+			StartCoroutine ("Flash");
+		}
+	}
+
+	IEnumerator Flash(){
+		yield return new WaitForSeconds (.1f);
+		statusPanel.color = originalColor;
+		yield return new WaitForSeconds (.25f);
+		isFlashing = false;
 	}
 }

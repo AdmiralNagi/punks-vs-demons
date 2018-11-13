@@ -21,7 +21,6 @@ public class TrackNote : MonoBehaviour {
 	[SerializeField]Vector3 spawnPos;
 	bool endReached = false;
 	bool originReached = false;
-	[SerializeField]private float destroySpeed;
 	float beatsShownEarly;
 	float spawnTime;
 	float beatOfThisNote;

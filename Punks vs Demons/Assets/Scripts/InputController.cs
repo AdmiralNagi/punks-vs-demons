@@ -31,10 +31,11 @@ public class InputController : MonoBehaviour {
 		}
 	}
 
+	[SerializeField]AudioSource pyroFlame;
+	[SerializeField]AudioSource missedClick;
 	public void LaneButtonPress(){
 		if (noteLocation.OnGoal){
-//			resultText.color = Color.green;
-//			resultText.text = "GOOD";
+			pyroFlame.Play ();
 			if (sp.SpecialValue < sp.MaxSpecial) {
 				sp.SpecialValue++;
 			}
@@ -54,8 +55,7 @@ public class InputController : MonoBehaviour {
 			}
 		}
 		else{
-//			resultText.color = Color.red;
-//			resultText.text = "BAD";
+			missedClick.Play ();
 			badTimingRing.SetActive (true);
 			StartCoroutine("TextFlash");
 

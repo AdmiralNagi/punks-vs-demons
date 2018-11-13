@@ -3,7 +3,18 @@ guid: 2d76b4fd41d585349990654bcc45a38e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - noteLocation: {instanceID: 0}
+  - punksDemonRatio: {instanceID: 0}
+  - resultText: {instanceID: 0}
+  - songManager: {instanceID: 0}
+  - health: {instanceID: 0}
+  - sp: {instanceID: 0}
+  - thisButton: {instanceID: 0}
+  - timingRing: {instanceID: 0}
+  - badTimingRing: {instanceID: 0}
+  - pyroFlame: {fileID: 82421328259929988, guid: 3d56ae5b7bf54d84cbfed9a16e5dedc4,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

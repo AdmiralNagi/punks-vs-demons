@@ -60,8 +60,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: edc96c2d9ed89d74a870d01be971fb43, type: 3}
   - {fileID: 21300000, guid: e1aeb9c81bb3b7c43bbd7d9f48496565, type: 3}
   spawnPos: {x: 0, y: 0, z: 0}
-  destroySpeed: 0.03
-  destroyTime: 1
+  destroyTime: 0.25
 --- !u!135 &135811877303494864
 SphereCollider:
   m_ObjectHideFlags: 1

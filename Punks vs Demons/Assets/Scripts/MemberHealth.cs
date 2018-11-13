@@ -41,7 +41,7 @@ public class MemberHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (currentHealth >= 10) {
-			hpDisplay.text = "HP" + (int)currentHealth + "/" + maxHealth;
+			hpDisplay.text = "HP " + (int)currentHealth + "/" + maxHealth;
 		} else {
 			hpDisplay.text = "HP 0" + (int)currentHealth + "/" + maxHealth;
 		}
@@ -67,6 +67,7 @@ public class MemberHealth : MonoBehaviour {
 		if (other.CompareTag ("Note")) {
 			if (currentHealth > 0 && !recharging) {
 				currentHealth--;
+				TakeDamage ();
 			}
 
 			if (punksDemonRatio.Demons < 99) {
@@ -87,5 +88,18 @@ public class MemberHealth : MonoBehaviour {
 		}
 
 		healthBar.anchorMax = Vector2.Lerp (empty, full, currentHealth / maxHealth);
+	}
+
+	[SerializeField]private SpriteRenderer spriteColor;
+	[SerializeField]private AudioSource hitSound;
+	void TakeDamage(){
+			spriteColor.color = Color.red;
+			hitSound.Play ();
+			StartCoroutine ("DamageFlash");
+	}
+
+	IEnumerator DamageFlash(){
+		yield return new WaitForSeconds (.1f);
+		spriteColor.color = Color.white;
 	}
 }

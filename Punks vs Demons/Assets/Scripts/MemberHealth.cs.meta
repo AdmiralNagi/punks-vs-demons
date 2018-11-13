@@ -3,7 +3,14 @@ guid: b9c4890123c75424b9bd68834ff9b964
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - punksDemonRatio: {instanceID: 0}
+  - hpDisplay: {instanceID: 0}
+  - healthBar: {instanceID: 0}
+  - healthColor: {instanceID: 0}
+  - spriteColor: {instanceID: 0}
+  - hitSound: {fileID: 82795141829400290, guid: 3d56ae5b7bf54d84cbfed9a16e5dedc4,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

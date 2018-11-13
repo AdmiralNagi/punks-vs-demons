@@ -29,7 +29,7 @@ public class MemberSpecial : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (specialValue >= 10) {
-			spDisplay.text = "SP" + (int)specialValue + "/" + maxSpecial;
+			spDisplay.text = "SP " + (int)specialValue + "/" + maxSpecial;
 		} else {
 			spDisplay.text = "SP 0" + (int)specialValue + "/" + maxSpecial;
 		}
