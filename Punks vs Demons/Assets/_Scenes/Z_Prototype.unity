@@ -8586,6 +8586,7 @@ GameObject:
   - component: {fileID: 559786773}
   - component: {fileID: 559786772}
   - component: {fileID: 559786771}
+  - component: {fileID: 559786774}
   m_Layer: 5
   m_Name: SL_Button
   m_TagString: Untagged
@@ -8649,18 +8650,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 559786772}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 504254403}
-        m_MethodName: LaneButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &559786772
@@ -8696,6 +8686,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 559786769}
+--- !u!114 &559786774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559786769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eeb97162cbaa3940b22964d4e14af7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 504254403}
 --- !u!1 &561576170
 GameObject:
   m_ObjectHideFlags: 0
@@ -14291,6 +14293,7 @@ GameObject:
   - component: {fileID: 624838640}
   - component: {fileID: 624838639}
   - component: {fileID: 624838638}
+  - component: {fileID: 624838641}
   m_Layer: 5
   m_Name: SR_Button
   m_TagString: Untagged
@@ -14354,18 +14357,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 624838639}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1062529691}
-        m_MethodName: LaneButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &624838639
@@ -14401,6 +14393,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 624838636}
+--- !u!114 &624838641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624838636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eeb97162cbaa3940b22964d4e14af7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 1062529691}
 --- !u!1001 &629549034
 Prefab:
   m_ObjectHideFlags: 0
@@ -16966,6 +16970,7 @@ GameObject:
   - component: {fileID: 853744646}
   - component: {fileID: 853744645}
   - component: {fileID: 853744644}
+  - component: {fileID: 853744647}
   m_Layer: 5
   m_Name: C_Button
   m_TagString: Untagged
@@ -17029,18 +17034,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 853744645}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 164391532}
-        m_MethodName: LaneButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &853744645
@@ -17076,6 +17070,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 853744642}
+--- !u!114 &853744647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853744642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eeb97162cbaa3940b22964d4e14af7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 164391532}
 --- !u!1001 &854572810
 Prefab:
   m_ObjectHideFlags: 0
@@ -29867,6 +29873,98 @@ Prefab:
       propertyPath: maxSpecial
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4178039650254440, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.50263107
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178039650254440, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.05026312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178039650254440, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.50263125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399822544115170, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.50263107
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399822544115170, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.05026312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399822544115170, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.50263125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007075158309520, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.50263107
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007075158309520, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.05026312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007075158309520, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.50263125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782906323989982, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.50263107
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782906323989982, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.05026312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782906323989982, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.50263125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178039650254440, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.35200003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178039650254440, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.2449998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178039650254440, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.31699982
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399822544115170, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.24499992
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399822544115170, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.31699955
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007075158309520, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.348
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007075158309520, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.245
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007075158309520, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.317
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782906323989982, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.24499992
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782906323989982, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.31699908
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399822544115170, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.99799997
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114788343487446766, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ef0fb8757e53f4843ac05f375acdebf4, type: 2}
@@ -32154,6 +32252,7 @@ GameObject:
   - component: {fileID: 1649379720}
   - component: {fileID: 1649379719}
   - component: {fileID: 1649379718}
+  - component: {fileID: 1649379721}
   m_Layer: 5
   m_Name: D_Button
   m_TagString: Untagged
@@ -32217,18 +32316,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1649379719}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1868514981}
-        m_MethodName: LaneButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1649379719
@@ -32264,6 +32352,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1649379716}
+--- !u!114 &1649379721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1649379716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eeb97162cbaa3940b22964d4e14af7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 1868514981}
 --- !u!1 &1654947752
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,8 +34,9 @@ public class InputController : MonoBehaviour {
 	[SerializeField]AudioSource pyroFlame;
 	[SerializeField]AudioSource missedClick;
 	public void LaneButtonPress(){
+		//missedClick.Play ();
 		if (noteLocation.OnGoal){
-			pyroFlame.Play ();
+			//pyroFlame.Play ();
 			if (sp.SpecialValue < sp.MaxSpecial) {
 				sp.SpecialValue++;
 			}
@@ -55,7 +56,7 @@ public class InputController : MonoBehaviour {
 			}
 		}
 		else{
-			missedClick.Play ();
+			//missedClick.Play ();
 			badTimingRing.SetActive (true);
 			StartCoroutine("TextFlash");
 
