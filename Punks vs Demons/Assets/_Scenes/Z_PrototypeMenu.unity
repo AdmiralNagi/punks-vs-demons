@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 92718378}
   - component: {fileID: 92718377}
   m_Layer: 5
-  m_Name: Song1
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,7 +460,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 92718378}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 596204635}
+        m_MethodName: fashionSong
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &92718378
@@ -752,6 +763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 313843250}
   - component: {fileID: 313843249}
+  - component: {fileID: 313843251}
   m_Layer: 0
   m_Name: SongSettings
   m_TagString: Untagged
@@ -771,6 +783,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songChosen: 1
+  songList:
+  - {fileID: 8300000, guid: 594492623a1358a4e8360b6d12bf5252, type: 3}
+  - {fileID: 8300000, guid: ab3bc305c301428469ea7d63026479ef, type: 3}
+  songBeats: {fileID: 313843251}
+  songIndex: 0
   bpm: 0
   beatsPerMeasure: 0
 --- !u!4 &313843250
@@ -786,6 +803,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &313843251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 313843248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff03a88a80dc7c4ba54a9898bed22a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fashionBeats: []
+  stormBeats: []
 --- !u!1 &340926801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1430,7 @@ GameObject:
   - component: {fileID: 567730359}
   - component: {fileID: 567730358}
   m_Layer: 5
-  m_Name: Song2
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1463,7 +1493,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 567730359}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 596204635}
+        m_MethodName: stormSong
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &567730359
@@ -1597,6 +1638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad27a158bd57fe5459ff554a3d9f9fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstSong: {fileID: 92718377}
+  secondSong: {fileID: 567730358}
   bpm: {fileID: 907316704}
   beatsPerMeasure: {fileID: 364720508}
   songButton: {fileID: 2061221843}

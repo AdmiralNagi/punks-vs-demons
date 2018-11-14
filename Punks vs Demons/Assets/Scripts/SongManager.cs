@@ -60,7 +60,8 @@ public class SongManager : MonoBehaviour {
 				notes [x] = (float)(x) * beatsPerMeasure + beatsShownEarly - beatsPerMeasure;
 			}
 		} else if (songSettings.songChosen == true) {
-			notes = song.GetComponent<FashionPunk> ().fashionPunkBeats;
+			notes = song.GetComponent<SongBeats> ().songs[songSettings.songIndex];
+			song.clip = songSettings.songList [songSettings.songIndex];
 			song.Play ();
 		}
 	}

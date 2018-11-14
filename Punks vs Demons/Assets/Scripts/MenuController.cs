@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
 	private SongSettings songSettings;
+	public Button firstSong;
+	public Button secondSong;
 	public Text bpm;
 	public Text beatsPerMeasure;
 	public Text songButton;
@@ -47,8 +49,20 @@ public class MenuController : MonoBehaviour {
 		}
 	}
 
-	public void PlaySong(){
-		songSettings.songChosen = !(songSettings.songChosen);
+	public void fashionSong(){
+		firstSong.image.color = Color.red;
+		secondSong.image.color = Color.white;
+		songSettings.songChosen = true;
+		songSettings.bpm = 200f;
+		songSettings.songIndex = 0;
+	}
+
+	public void stormSong(){
+		secondSong.image.color = Color.red;
+		firstSong.image.color = Color.white;
+		songSettings.songChosen = true;
+		songSettings.bpm = 105f;
+		songSettings.songIndex = 1;
 	}
 
 	public GameObject practicePanel;

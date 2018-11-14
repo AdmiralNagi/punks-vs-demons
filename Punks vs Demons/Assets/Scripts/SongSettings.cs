@@ -6,6 +6,9 @@ public class SongSettings : MonoBehaviour {
 	
 	private static bool created = false;
 	public bool songChosen = true;
+	public AudioClip[] songList;
+	public SongBeats songBeats;
+	public int songIndex;
 
 
 	void Awake(){
