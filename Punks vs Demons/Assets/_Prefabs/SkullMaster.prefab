@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114123187946507228}
   - component: {fileID: 54815407178206706}
   m_Layer: 0
-  m_Name: SkullShadow
+  m_Name: SkullMaster
   m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songManager: {fileID: 0}
+  scoreController: {fileID: 0}
   noteColor:
   - {fileID: 21300000, guid: 7055bf8285ea6e34cbb89ab485a5653f, type: 3}
   - {fileID: 21300000, guid: 23edd632942b69b45b8b0e437a54c660, type: 3}
@@ -180,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songManager: {fileID: 0}
+  scoreController: {fileID: 0}
   noteColor:
   - {fileID: 21300000, guid: 7055bf8285ea6e34cbb89ab485a5653f, type: 3}
   - {fileID: 21300000, guid: 23edd632942b69b45b8b0e437a54c660, type: 3}

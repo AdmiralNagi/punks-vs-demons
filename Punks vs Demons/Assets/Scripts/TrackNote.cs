@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 public class TrackNote : MonoBehaviour {
 
 	public SongManager songManager;
+	public ScoreController scoreController;
 	//arrays of note colors, starting points, and end points
 	[SerializeField]private Sprite[] noteColor;
 

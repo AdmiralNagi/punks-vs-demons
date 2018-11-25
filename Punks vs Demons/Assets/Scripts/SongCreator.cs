@@ -15,12 +15,13 @@ public class SongCreator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.DownArrow)) {
-			string currentBeat = Mathf.Round(songManager.trackPosInBeats * 100f) / 100f + ", ";
+			float roundedBeat = Mathf.Round(songManager.trackPosInBeats * 10f) / 10f;
+			string currentBeat = Mathf.Round(songManager.trackPosInBeats * 2f) / 2f + "f, ";
 			beats.Add (currentBeat);
 		}
 
 		if (Input.GetKeyDown (KeyCode.Return)) {
-			System.IO.File.WriteAllLines(@"C:\Users\Steven\Desktop\Beats\storm.txt", beats.ToArray());
+			System.IO.File.WriteAllLines(@"C:\Users\God\Desktop\Beats\storm.txt", beats.ToArray());
 		}
 	}
 
