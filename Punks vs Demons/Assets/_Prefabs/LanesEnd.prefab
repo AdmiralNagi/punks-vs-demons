@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 65392375516676378}
   - component: {fileID: 114699789452219406}
   - component: {fileID: 114020743995755226}
-  - component: {fileID: 114511739133437298}
+  - component: {fileID: 114144103838604962}
   m_Layer: 0
   m_Name: C_HP
   m_TagString: Untagged
@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 65129961783645074}
   - component: {fileID: 114583450791313222}
   - component: {fileID: 114785508436161950}
+  - component: {fileID: 114633414124612854}
   m_Layer: 0
   m_Name: D_HP
   m_TagString: Untagged
@@ -313,6 +314,7 @@ GameObject:
   - component: {fileID: 65836120365140288}
   - component: {fileID: 114142201436150548}
   - component: {fileID: 114260767540771580}
+  - component: {fileID: 114829425816354072}
   m_Layer: 0
   m_Name: SL_HP
   m_TagString: Untagged
@@ -1591,9 +1593,26 @@ MonoBehaviour:
   healthColor: {fileID: 0}
   regenRate: 10
   memberPanel: {fileID: 0}
+  tankSpecial: {fileID: 114829425816354072}
   rechargeSpeed: 10
   spriteColor: {fileID: 0}
   hitSound: {fileID: 0}
+--- !u!114 &114144103838604962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1300275680024648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dceca402a45eb74f84603ec4a01feb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreController: {fileID: 0}
+  multiplierTitleText: {fileID: 0}
+  multiplierText: {fileID: 0}
+  naomi: {fileID: 114020743995755226}
+  specialDuration: 10
 --- !u!114 &114144256389045496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1705,19 +1724,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0, z: 90}
---- !u!114 &114511739133437298
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1300275680024648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de64ad0c3e128147bb6cae977fc874b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flame: {fileID: 0}
-  naomi: {fileID: 114020743995755226}
 --- !u!114 &114526529367937134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1736,6 +1742,7 @@ MonoBehaviour:
   healthColor: {fileID: 0}
   regenRate: 10
   memberPanel: {fileID: 0}
+  tankSpecial: {fileID: 114829425816354072}
   rechargeSpeed: 10
   spriteColor: {fileID: 0}
   hitSound: {fileID: 0}
@@ -1805,9 +1812,23 @@ MonoBehaviour:
   healthColor: {fileID: 0}
   regenRate: 10
   memberPanel: {fileID: 0}
+  tankSpecial: {fileID: 114829425816354072}
   rechargeSpeed: 10
   spriteColor: {fileID: 0}
   hitSound: {fileID: 0}
+--- !u!114 &114633414124612854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344835994825416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de64ad0c3e128147bb6cae977fc874b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flame: {fileID: 0}
+  berge: {fileID: 114785508436161950}
 --- !u!114 &114674239121534088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1865,6 +1886,7 @@ MonoBehaviour:
   healthColor: {fileID: 0}
   regenRate: 10
   memberPanel: {fileID: 0}
+  tankSpecial: {fileID: 114829425816354072}
   rechargeSpeed: 10
   spriteColor: {fileID: 0}
   hitSound: {fileID: 0}
@@ -1898,6 +1920,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0, z: 90}
+--- !u!114 &114829425816354072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1495889472492912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6adcec6fc68a9846a794e6de1b4a9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shielded: 0
+  tank: {fileID: 114260767540771580}
+  shieldDuration: 10
+  tankColor: {fileID: 0}
+  bergeColor: {fileID: 0}
+  naomiColor: {fileID: 0}
+  jonnyColor: {fileID: 0}
 --- !u!114 &114869627307842110
 MonoBehaviour:
   m_ObjectHideFlags: 1

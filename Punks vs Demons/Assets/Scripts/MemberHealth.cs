@@ -18,7 +18,7 @@ public class MemberHealth : MonoBehaviour {
 		set{ currentHealth = value; }
 	}
 
-	private bool recharging;
+	public bool recharging;
 	private Color originalHealthColor;
 	private Color rechargeColor;
 	private float originalR;

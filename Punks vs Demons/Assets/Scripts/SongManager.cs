@@ -36,6 +36,7 @@ public class SongManager : MonoBehaviour {
 
 	void Awake(){
 		FindAndSetSongSettings ();
+
 	}
 
 	void FindAndSetSongSettings(){
@@ -73,10 +74,12 @@ public class SongManager : MonoBehaviour {
 		}
 	}
 
+	public bool songSet = false;
 	void SetSong(){
 		notes = song.GetComponent<SongBeats> ().songs[songSettings.songIndex];
 		song.clip = songSettings.songList [songSettings.songIndex];
 		song.Play ();
+		songSet = true;
 	}
 		
 	void Update () {

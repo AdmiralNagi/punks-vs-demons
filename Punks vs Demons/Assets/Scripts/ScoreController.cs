@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour {
-
+	private PlayerScore playerScore;
 	public Text scoreText;
 	public Text scoreTextShadow;
 	private int score;
@@ -18,6 +18,7 @@ public class ScoreController : MonoBehaviour {
 	private int combo;
 	[SerializeField]private int comboStep;
 	[SerializeField]private int maxMultiplier;
+	[SerializeField]private SongManager songManager;
 
 	void Start(){
 		specialMultiplier = 1;
@@ -26,21 +27,55 @@ public class ScoreController : MonoBehaviour {
 	}
 
 	void Update() {
-		scoreText.text = SetScoreText();
+		if (songManager.songSet && !playerScoreLoaded) {
+			LoadPlayerScore ();
+			playerScoreLoaded = true;
+		}
+		
+		scoreText.text = GetScoreText(score);
 		multiplierText.text = "x" + (multiplier * specialMultiplier);
 		SetShadows ();
 	}
 
-	string SetScoreText(){
+	private string currentSongHighScore;
+	private bool playerScoreLoaded = false;
+	public bool PlayerScoreLoaded{
+		get { return playerScoreLoaded; }
+	}
+	void LoadPlayerScore(){
+		playerScore = new PlayerScore ();
+		currentSongHighScore = "highScore_" + songManager.song.clip.name;
+
+		if (PlayerPrefs.HasKey(currentSongHighScore)){
+			playerScore.highScore = PlayerPrefs.GetInt(currentSongHighScore);
+		}
+	}
+
+	void SavePlayerScore(){
+		PlayerPrefs.SetInt (currentSongHighScore, playerScore.highScore);
+	}
+
+	public void SubmitPlayerScore(){
+		if (score > playerScore.highScore) {
+			playerScore.highScore = score;
+			SavePlayerScore ();
+		}
+	}
+
+	public int GetHighScore(){
+		return playerScore.highScore;
+	}
+
+	public string GetScoreText(int value){
 		string currentScore = "";
-		if (score < 1000)
+		if (value < 1000)
 			currentScore += "0";
-		if (score < 100)
+		if (value < 100)
 			currentScore += "0";
-		if (score < 10)
+		if (value < 10)
 			currentScore += "0";
 
-		currentScore += score.ToString ();
+		currentScore += value.ToString ();
 
 		return currentScore;
 	}

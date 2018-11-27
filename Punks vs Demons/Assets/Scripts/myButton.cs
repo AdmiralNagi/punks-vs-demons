@@ -6,8 +6,11 @@ using UnityEngine.EventSystems;
 public class myButton : MonoBehaviour, IPointerDownHandler {
 
 	public InputController input;
+	public MemberHealth health;
 
 	public void OnPointerDown(PointerEventData data){
-		input.LaneButtonPress ();
+		if (!health.recharging) {
+			input.LaneButtonPress ();
+		}
 	}
 }

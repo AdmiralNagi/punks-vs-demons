@@ -4,14 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class WinLose : MonoBehaviour {
-	[SerializeField]private GameObject winLossPanel;
-	[SerializeField]private Text winLossText;
+	[SerializeField]private ScoreController scoreController;
+	[SerializeField]private GameObject winPanel;
+	[SerializeField]private GameObject lossPanel;
+	[SerializeField]private Text finalScore;
+	[SerializeField]private Text highScore;
 	[SerializeField]private GameObject songManager;
 	private float lastNote;
 
 	// Use this for initialization
 	void Start () {
-		winLossPanel.SetActive (false);
+		winPanel.SetActive (false);
+		lossPanel.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -22,21 +26,22 @@ public class WinLose : MonoBehaviour {
 		}
 
 		if (GetComponentInParent<BoundaryController> ().Demons >= 99) {
-			winLossPanel.SetActive (true);
-			winLossText.text = "DEMONS RECKT THE SHOW";
-			winLossText.color = new Color (160f, 0f, 0f);
+			lossPanel.SetActive (true);
 			Time.timeScale = 0f;
-			if (songManager.GetComponent<SongManager> ().song) {
+			if (songManager.GetComponent<SongManager> ().songSet) {
 				songManager.GetComponent<SongManager> ().song.Pause ();
 			} else {
 				songManager.SetActive (false);
 			}
 		} else if (lastNote < songManager.GetComponent<SongManager> ().trackPosInBeats) {
-			winLossPanel.SetActive (true);
-			winLossText.text = "YOU VANQUISHED";
-			winLossText.color = new Color (0f, 89f, 41f);
+			winPanel.SetActive (true);
+			finalScore.text = scoreController.scoreText.text;
+			if (scoreController.PlayerScoreLoaded) {
+				scoreController.SubmitPlayerScore ();
+				highScore.text = scoreController.GetScoreText (scoreController.GetHighScore ());
+			}
 			Time.timeScale = 0f;
-			if (songManager.GetComponent<SongManager> ().song) {
+			if (songManager.GetComponent<SongManager> ().songSet) {
 				songManager.GetComponent<SongManager> ().song.Pause ();
 			} else {
 				songManager.SetActive (false);
