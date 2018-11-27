@@ -35,29 +35,41 @@ public class TrackNote : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		songManager = GameObject.Find ("SongManager").GetComponent<SongManager> ();
+		scoreController = GameObject.Find ("ScorePanel").GetComponent<ScoreController> ();
+
 		beatsShownEarly = songManager.beatsShownEarly;
 		spawnTime = songManager.spawnTime;
+
 		if(songManager.noteIndex < songManager.notes.Length)
 			beatOfThisNote = songManager.notes [songManager.noteIndex];
 
-		//gameObject.GetComponent<Renderer> ().material = noteColors [whatColorIndex];
-		gameObject.GetComponentInChildren<SpriteRenderer>().sprite = noteColor[whatColorIndex];
+		InitializeTrackAndColor ();
 
+		songManager.noteIndex++;
+	}
+
+	void InitializeTrackAndColor (){
+		gameObject.GetComponentInChildren<SpriteRenderer>().sprite = noteColor[whatColorIndex];
 		originPos = songManager.originPositions [whatColorIndex].position;
 		endPos = songManager.endPositions [whatColorIndex].position;
 		bandMemberPosition = songManager.bandMember [whatColorIndex].position;
 		spawnPos = songManager.spawnPosition.position;
 		transform.position = spawnPos;
-		songManager.noteIndex++;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		MoveNote ();
 	}
 
 	void OnTriggerEnter(Collider other){
 		if (other.CompareTag("DestroyNote")){
+			scoreController.ReduceMultiplier ();
+			songManager.LaneNotes [whatColorIndex].Remove (gameObject);
+			Destroy(gameObject);
+		}
+
+		if (other.CompareTag("Flame")){
+			scoreController.UpdateScore();
 			songManager.LaneNotes [whatColorIndex].Remove (gameObject);
 			Destroy(gameObject);
 		}
@@ -68,7 +80,6 @@ public class TrackNote : MonoBehaviour {
 	void MoveNote () {
 		if (!endReached && originReached) {
 			float perc = (beatsShownEarly - (beatOfThisNote - songManager.trackPosInBeats)) / beatsShownEarly;
-//			Debug.Log (perc.ToString());
 			transform.position = Vector3.Lerp (originPos, endPos, perc);
 		} else if (!originReached) {
 			float perc = (spawnTime - (beatOfThisNote - beatsShownEarly - songManager.trackPosInBeats)) / spawnTime;

@@ -61,7 +61,7 @@ public class MenuController : MonoBehaviour {
 		secondSong.image.color = Color.red;
 		firstSong.image.color = Color.white;
 		songSettings.songChosen = true;
-		songSettings.bpm = 105f;
+		songSettings.bpm = 106f;
 		songSettings.songIndex = 1;
 	}
 

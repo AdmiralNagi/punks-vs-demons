@@ -10,17 +10,11 @@ public class VersusText : MonoBehaviour {
 	private Color originalColor;
 
 	void Start () {
-		originalColor = statusPanel.color;
-		GetComponent<Text> ().text = "[" + punksDemonRatio.Punks + ":"
-		+ punksDemonRatio.Demons + "]";
-		
+		originalColor = statusPanel.color;		
 	}
 
 	private bool isFlashing = false;
 	void Update () {
-		GetComponent<Text> ().text = "[" + punksDemonRatio.Punks + ":"
-			+ punksDemonRatio.Demons + "]";
-
 		vsBar.anchorMax = new Vector2 (punksDemonRatio.Punks / 100f, 1f);
 
 		if (!isFlashing && punksDemonRatio.Punks <= 25) {

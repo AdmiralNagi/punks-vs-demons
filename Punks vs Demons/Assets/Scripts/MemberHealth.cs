@@ -106,17 +106,19 @@ public class MemberHealth : MonoBehaviour {
 		isFlashing = false;
 	}
 
+	[SerializeField]private TankSpecial tankSpecial;
 	void OnTriggerEnter(Collider other){
 		if (other.CompareTag ("Note")) {
-			if (currentHealth > 0 && !recharging) {
-				timeSinceDamage = 0f;
-				currentHealth--;
-				TakeDamage ();
-			}
-
-			if (punksDemonRatio.Demons < 99) {
-				punksDemonRatio.Punks--;
-				punksDemonRatio.Demons++;
+			if (!tankSpecial.shielded) {
+				if (currentHealth > 0 && !recharging) {
+					timeSinceDamage = 0f;
+					currentHealth--;
+					TakeDamage ();
+				}
+				if (punksDemonRatio.Demons < 99) {
+					punksDemonRatio.Punks--;
+					punksDemonRatio.Demons++;
+				}
 			}
 		}
 	}

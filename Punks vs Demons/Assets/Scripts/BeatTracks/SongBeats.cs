@@ -329,7 +329,7 @@ public class SongBeats : MonoBehaviour {
 			254f, 
 			255f, 
 			256f, 
-			2560f, 
+			260f, 
 			261f, 
 			262f, 
 			262.5f, 

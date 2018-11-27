@@ -35,49 +35,61 @@ public class SongManager : MonoBehaviour {
 	public float beatsPerMeasure = 4;
 
 	void Awake(){
+		FindAndSetSongSettings ();
+	}
+
+	void FindAndSetSongSettings(){
 		if (GameObject.Find ("SongSettings") != null) {
 			songSettings = GameObject.Find ("SongSettings").GetComponent<SongSettings> ();
 			bpm = songSettings.bpm;
 			beatsPerMeasure = songSettings.beatsPerMeasure;
 		}
 	}
-	// Use this for initialization
+
 	void Start () {
+		InstantiateLaneNotes ();
+		secPerBeat = 60f / bpm;
+		beatsShownEarly = 10;
+		dsptimesong = (float)AudioSettings.dspTime;
+
+		if (!songSettings || songSettings.songChosen == false) {
+			SetMetronome ();
+		} else if (songSettings.songChosen == true) {
+			SetSong ();
+		}
+	}
+
+	void InstantiateLaneNotes(){
 		LaneNotes = new List<GameObject>[4];
 		for (int i = 0; i < LaneNotes.Length; i++) {
 			LaneNotes[i] = new List<GameObject>();
 		}
+	}
 
-		secPerBeat = 60f / bpm;
-		beatsShownEarly = 10;
-
-		dsptimesong = (float)AudioSettings.dspTime;
-
-		if (!songSettings || songSettings.songChosen == false) {
-			//prototyping purposes
-			notes = new float[(int)((bpm * trackLengthInMin) / beatsPerMeasure)];
-			for (int x = 0; x < notes.Length; x++) {
-				notes [x] = (float)(x) * beatsPerMeasure + beatsShownEarly - beatsPerMeasure;
-			}
-		} else if (songSettings.songChosen == true) {
-			notes = song.GetComponent<SongBeats> ().songs[songSettings.songIndex];
-			song.clip = songSettings.songList [songSettings.songIndex];
-			song.Play ();
+	void SetMetronome(){
+		notes = new float[(int)((bpm * trackLengthInMin) / beatsPerMeasure)];
+		for (int x = 0; x < notes.Length; x++) {
+			notes [x] = (float)(x) * beatsPerMeasure + beatsShownEarly - beatsPerMeasure;
 		}
 	}
+
+	void SetSong(){
+		notes = song.GetComponent<SongBeats> ().songs[songSettings.songIndex];
+		song.clip = songSettings.songList [songSettings.songIndex];
+		song.Play ();
+	}
 		
-	// Update is called once per frame
 	void Update () {
 		trackPosistion = (float)(AudioSettings.dspTime - dsptimesong);
+		CreateNote ();
+		trackPosInBeats = trackPosistion / secPerBeat;
+	}
 
+	void CreateNote(){
 		if (noteIndex < notes.Length && notes [noteIndex] < trackPosInBeats + beatsShownEarly + spawnTime) {
 			GameObject newNote = Instantiate (note);
-			//int listIndex = note.GetComponent<TrackNote> ().WhatColorIndex;
 			int listIndex = newNote.GetComponent<TrackNote>().WhatColorIndex;
-			//Debug.Log (listIndex.ToString ());
 			LaneNotes [listIndex].Add (newNote);
 		}
-
-		trackPosInBeats = trackPosistion / secPerBeat;
 	}
 }

@@ -16,6 +16,7 @@ TagManager:
   - DestroyNote
   - CrowdBoundary
   - Crowd
+  - Flame
   layers:
   - Default
   - TransparentFX

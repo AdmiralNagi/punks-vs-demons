@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 65969115810144842}
   - component: {fileID: 114526529367937134}
   - component: {fileID: 114136156727769664}
+  - component: {fileID: 114685783810231170}
   m_Layer: 0
   m_Name: SR_HP
   m_TagString: Untagged
@@ -168,6 +169,7 @@ GameObject:
   - component: {fileID: 65392375516676378}
   - component: {fileID: 114699789452219406}
   - component: {fileID: 114020743995755226}
+  - component: {fileID: 114511739133437298}
   m_Layer: 0
   m_Name: C_HP
   m_TagString: Untagged
@@ -311,7 +313,6 @@ GameObject:
   - component: {fileID: 65836120365140288}
   - component: {fileID: 114142201436150548}
   - component: {fileID: 114260767540771580}
-  - component: {fileID: 114788343487446766}
   m_Layer: 0
   m_Name: SL_HP
   m_TagString: Untagged
@@ -629,8 +630,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923344217552512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.34800002, y: 0.18900014, z: -0.31700033}
-  m_LocalScale: {x: 0.39760646, y: 0.039760645, z: 0.39760646}
+  m_LocalPosition: {x: -0.348, y: 0.245, z: -0.317}
+  m_LocalScale: {x: 0.50263107, y: 0.05026312, z: 0.50263125}
   m_Children:
   - {fileID: 4406667388694550}
   - {fileID: 4844850861120568}
@@ -708,8 +709,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1741747512843782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.352, y: 0.189, z: -0.317}
-  m_LocalScale: {x: 0.39760646, y: 0.039760645, z: 0.39760646}
+  m_LocalPosition: {x: 0.35200003, y: 0.2449998, z: -0.31699982}
+  m_LocalScale: {x: 0.50263107, y: 0.05026312, z: 0.50263125}
   m_Children:
   - {fileID: 4611391753285286}
   - {fileID: 4854767697418008}
@@ -846,8 +847,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196377804959708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99799997, y: 0.18900011, z: -0.31699973}
-  m_LocalScale: {x: 0.39760646, y: 0.039760645, z: 0.39760646}
+  m_LocalPosition: {x: -0.99799997, y: 0.24499992, z: -0.31699955}
+  m_LocalScale: {x: 0.50263107, y: 0.05026312, z: 0.50263125}
   m_Children:
   - {fileID: 4830691752543084}
   - {fileID: 4732097500329252}
@@ -902,7 +903,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1495889472492912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.533, y: 0.227, z: 1.222}
+  m_LocalPosition: {x: 0.533, y: 0.227, z: 1.344}
   m_LocalScale: {x: 0.4118607, y: 0.5783212, z: 1}
   m_Children: []
   m_Father: {fileID: 4075978315416506}
@@ -967,8 +968,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1047634661437940}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0020001, y: 0.18900011, z: -0.31699926}
-  m_LocalScale: {x: 0.39760646, y: 0.039760645, z: 0.39760646}
+  m_LocalPosition: {x: 1.0020001, y: 0.24499992, z: -0.31699908}
+  m_LocalScale: {x: 0.50263107, y: 0.05026312, z: 0.50263125}
   m_Children:
   - {fileID: 4290100382562812}
   - {fileID: 4918548313172236}
@@ -1539,7 +1540,9 @@ MonoBehaviour:
   specialBar: {fileID: 0}
   spDisplay: {fileID: 0}
   spIcon: {fileID: 0}
-  fadeTime: 0.3
+  spPanel: {fileID: 0}
+  spButton: {fileID: 0}
+  fadeTime: 0.5
 --- !u!114 &114122911068514174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1567,7 +1570,9 @@ MonoBehaviour:
   specialBar: {fileID: 0}
   spDisplay: {fileID: 0}
   spIcon: {fileID: 0}
-  fadeTime: 0.3
+  spPanel: {fileID: 0}
+  spButton: {fileID: 0}
+  fadeTime: 0.5
 --- !u!114 &114142201436150548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1662,7 +1667,9 @@ MonoBehaviour:
   specialBar: {fileID: 0}
   spDisplay: {fileID: 0}
   spIcon: {fileID: 0}
-  fadeTime: 0.3
+  spPanel: {fileID: 0}
+  spButton: {fileID: 0}
+  fadeTime: 0.5
 --- !u!114 &114335846128492544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1698,6 +1705,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0, z: 90}
+--- !u!114 &114511739133437298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1300275680024648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de64ad0c3e128147bb6cae977fc874b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flame: {fileID: 0}
+  naomi: {fileID: 114020743995755226}
 --- !u!114 &114526529367937134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1811,6 +1831,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0, z: 90}
+--- !u!114 &114685783810231170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146856097365628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75b62f3e7a63ec4c9c78e0dfb514d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSR: {fileID: 114526529367937134}
+  healthC: {fileID: 114699789452219406}
+  healthD: {fileID: 114583450791313222}
+  healthSL: {fileID: 114142201436150548}
+  jonny: {fileID: 114136156727769664}
 --- !u!114 &114699789452219406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1847,7 +1883,9 @@ MonoBehaviour:
   specialBar: {fileID: 0}
   spDisplay: {fileID: 0}
   spIcon: {fileID: 0}
-  fadeTime: 0.3
+  spPanel: {fileID: 0}
+  spButton: {fileID: 0}
+  fadeTime: 0.5
 --- !u!114 &114785905627499014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1860,22 +1898,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0, z: 90}
---- !u!114 &114788343487446766
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1495889472492912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75b62f3e7a63ec4c9c78e0dfb514d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSR: {fileID: 114526529367937134}
-  healthC: {fileID: 114699789452219406}
-  healthD: {fileID: 114583450791313222}
-  healthSL: {fileID: 114142201436150548}
-  jonny: {fileID: 114260767540771580}
 --- !u!114 &114869627307842110
 MonoBehaviour:
   m_ObjectHideFlags: 1

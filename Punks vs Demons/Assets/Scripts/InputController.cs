@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour {
 	private int laneIndex;
 	public Text resultText;
 	[SerializeField]private SongManager songManager;
+	[SerializeField]private ScoreController scoreController;
 	[SerializeField]private MemberHealth health;
 	[SerializeField]private MemberSpecial sp;
 	[SerializeField]private Button thisButton;
@@ -31,41 +32,36 @@ public class InputController : MonoBehaviour {
 		}
 	}
 
-	[SerializeField]AudioSource pyroFlame;
-	[SerializeField]AudioSource missedClick;
+
+
 	public void LaneButtonPress(){
-		//missedClick.Play ();
 		if (noteLocation.OnGoal){
-			//pyroFlame.Play ();
-			if (sp.SpecialValue < sp.MaxSpecial) {
-				sp.SpecialValue++;
-			}
-			timingRing.SetActive(true);
-			StartCoroutine("TextFlash");
-
-			if (punksDemonRatio.Punks < 99) {
-				punksDemonRatio.Punks++;
-				punksDemonRatio.Demons--;
-			}
-
-			if (songManager.LaneNotes [laneIndex].Count > 0) {
-				GameObject noteToDestroy = songManager.LaneNotes [laneIndex] [0].gameObject;
-				songManager.LaneNotes [laneIndex].RemoveAt(0);
-				Destroy (noteToDestroy);
-				noteLocation.OnGoal = false;
-			}
+			GoodTiming ();
+			IncreaseSpecial ();
+			scoreController.IncreaseMultiplier ();
+			IncreasePunksToDemons ();
+			DestroyTrackNote ();
 		}
 		else{
-			//missedClick.Play ();
-			badTimingRing.SetActive (true);
-			StartCoroutine("TextFlash");
-
-			if (punksDemonRatio.Demons < 99) {
-				punksDemonRatio.Punks--;
-				punksDemonRatio.Demons++;
-			}
+			BadTiming ();
+			scoreController.ReduceMultiplier ();
+			DecreasePunksToDemons ();
 		}
 
+	}
+
+	[SerializeField]AudioSource pyroFlame;
+	void GoodTiming(){
+		//pyroFlame.Play ();
+		timingRing.SetActive(true);
+		StartCoroutine("TextFlash");
+	}
+
+	[SerializeField]AudioSource missedClick;
+	void BadTiming(){
+		//missedClick.Play ();
+		badTimingRing.SetActive (true);
+		StartCoroutine("TextFlash");
 	}
 
 	IEnumerator TextFlash(){
@@ -73,5 +69,34 @@ public class InputController : MonoBehaviour {
 		//resultText.text = "";
 		badTimingRing.SetActive(false);
 		timingRing.SetActive (false);
+	}
+
+	void IncreaseSpecial(){
+		if (sp.SpecialValue < sp.MaxSpecial) {
+			sp.SpecialValue++;
+		}
+	}
+
+	void IncreasePunksToDemons(){
+		if (punksDemonRatio.Punks < 99) {
+			punksDemonRatio.Punks++;
+			punksDemonRatio.Demons--;
+		}
+	}
+
+	void DecreasePunksToDemons(){
+		if (punksDemonRatio.Demons < 99) {
+			punksDemonRatio.Punks--;
+			punksDemonRatio.Demons++;
+		}
+	}
+
+	void DestroyTrackNote(){
+		if (songManager.LaneNotes [laneIndex].Count > 0) {
+			GameObject noteToDestroy = songManager.LaneNotes [laneIndex] [0].gameObject;
+			songManager.LaneNotes [laneIndex].RemoveAt(0);
+			Destroy (noteToDestroy);
+			noteLocation.OnGoal = false;
+		}
 	}
 }

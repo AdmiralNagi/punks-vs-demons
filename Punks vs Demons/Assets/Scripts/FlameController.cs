@@ -12,6 +12,9 @@ public class FlameController : MonoBehaviour {
 
 	public Transform targetLocation;
 	[SerializeField]private float flameLerpTime = 2f;
+	public float FlameLerpTime{
+		get { return flameLerpTime; }
+	}
 	void Update () {
 		currentLerpTime += Time.deltaTime;
 

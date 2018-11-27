@@ -1,30 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NaomiSpecial : MonoBehaviour {
-	[SerializeField]private FlameController flame;
-	[SerializeField]private MemberSpecial naomi;
-	private bool flaming;
-	private Vector3 target;
+	public ScoreController scoreController;
+	public Text multiplierTitleText;
+	public Text multiplierText;
+	public MemberSpecial naomi;
+	public float specialDuration = 10f;
+
+	private Color lightBlue;
 
 	void Start(){
-		target = flame.targetLocation.position;
+		lightBlue = new Color (0f, 1f, 250f / 255f);
 	}
 
-	void Update(){
-		if (flaming && flame.transform.position == target) {
-			flame.transform.position = flame.startPosition;
-			flame.gameObject.SetActive (false);
-			flaming = false;
-			naomi.SpecialValue = 0;
-		}
+	public void DoubleMultiply() {
+		naomi.SpecialValue = 0;
+		multiplierText.color = lightBlue;
+		multiplierTitleText.color = lightBlue;
+		scoreController.specialMultiplier = 2;
+		StartCoroutine ("SpecialDuration");
 	}
 
-	public void FlameOn(){
-		flame.currentLerpTime = 0f;
-		flame.gameObject.SetActive (true);
-		flaming = true;
-
+	IEnumerator SpecialDuration(){
+		yield return new WaitForSeconds (specialDuration);
+		multiplierText.color = Color.white;
+		multiplierTitleText.color = Color.white;
+		scoreController.specialMultiplier = 1;
 	}
 }

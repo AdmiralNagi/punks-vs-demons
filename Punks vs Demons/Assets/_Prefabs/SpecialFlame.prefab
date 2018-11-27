@@ -45,21 +45,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1662075064196998
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4169906158686144}
-  m_Layer: 0
-  m_Name: FlameTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1884648945023994
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,24 +74,11 @@ GameObject:
   - component: {fileID: 114107702751341510}
   m_Layer: 0
   m_Name: SpecialFlame
-  m_TagString: DestroyNote
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &4169906158686144
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1662075064196998}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.842, z: -7.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4291385994913034}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4291193237098578
 Transform:
   m_ObjectHideFlags: 1
@@ -126,14 +98,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989809981279504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.47, z: 7.42}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4699707, z: 7.420001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4327640924626352}
   - {fileID: 4291193237098578}
   - {fileID: 4753576362023408}
-  - {fileID: 4169906158686144}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -186,9 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff23fc217e3208d44b6a1eb018777f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0, z: 0}
   currentLerpTime: 0
-  targetLocation: {fileID: 4169906158686144}
-  flameLerpTime: 2
+  targetLocation: {fileID: 0}
+  flameLerpTime: 3
 --- !u!198 &198377336112531178
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1399,8 +1371,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0.9884535, b: 0.7411765, a: 1}
-        key1: {r: 0.7764706, g: 0.23137254, b: 0.26097882, a: 1}
-        key2: {r: 0.5493388, g: 0.011245191, b: 0.20867531, a: 0}
+        key1: {r: 0.7764706, g: 0.6273234, b: 0.23137254, a: 1}
+        key2: {r: 0.6698113, g: 0.4058283, b: 0, a: 0}
         key3: {r: 0.5377358, g: 0, b: 0.19729884, a: 0}
         key4: {r: 0, g: 0.41509432, b: 0.22307792, a: 0}
         key5: {r: 0, g: 0.41509432, b: 0.22307792, a: 0}
@@ -5930,8 +5902,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0.9884535, b: 0.7411765, a: 1}
-        key1: {r: 0.7764706, g: 0.23137254, b: 0.26097882, a: 1}
-        key2: {r: 0.5493388, g: 0.011245191, b: 0.20867531, a: 0}
+        key1: {r: 0.7764706, g: 0.6273234, b: 0.23137254, a: 1}
+        key2: {r: 0.6698113, g: 0.4058283, b: 0, a: 0}
         key3: {r: 0.5377358, g: 0, b: 0.19729884, a: 0}
         key4: {r: 0, g: 0.41509432, b: 0.22307792, a: 0}
         key5: {r: 0, g: 0.41509432, b: 0.22307792, a: 0}
@@ -10461,8 +10433,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0.9884535, b: 0.7411765, a: 1}
-        key1: {r: 0.7764706, g: 0.23137254, b: 0.26097882, a: 1}
-        key2: {r: 0.5493388, g: 0.011245191, b: 0.20867531, a: 0}
+        key1: {r: 0.7764706, g: 0.6273234, b: 0.23137254, a: 1}
+        key2: {r: 0.6698113, g: 0.4058283, b: 0, a: 0}
         key3: {r: 0.5377358, g: 0, b: 0.19729884, a: 0}
         key4: {r: 0, g: 0.41509432, b: 0.22307792, a: 0}
         key5: {r: 0, g: 0.41509432, b: 0.22307792, a: 0}

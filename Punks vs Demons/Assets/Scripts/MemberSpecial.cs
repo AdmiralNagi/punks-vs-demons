@@ -17,6 +17,7 @@ public class MemberSpecial : MonoBehaviour {
 	[SerializeField]private RectTransform specialBar;
 	[SerializeField]private Text spDisplay;
 	[SerializeField]private Text spIcon;
+	[SerializeField]private Image spPanel;
 	private bool specialAvailable = false;
 	public bool SpecialAvailable{
 		get{ return specialAvailable; }
@@ -28,6 +29,8 @@ public class MemberSpecial : MonoBehaviour {
 		UpdateSpecialTextAndBar ();
 		if (SpecialCheck ()) {
 			StartLerp ();
+		} else {
+			spPanel.color = new Color (spPanel.color.r, spPanel.color.g, spPanel.color.b, 0f);
 		}
 		spButton.gameObject.SetActive (specialAvailable);
 		SpecialLerp ();
@@ -69,13 +72,13 @@ public class MemberSpecial : MonoBehaviour {
 
 			float perc = startFade / fadeTime;
 			float alpha = Mathf.Lerp (startingAlpha, targetAlpha, perc);
-			spIcon.color = new Color (spIcon.color.r, spIcon.color.g, spIcon.color.b, alpha);
+			spPanel.color = new Color (spPanel.color.r, spPanel.color.g, spPanel.color.b, alpha);
 		}
 	}
 
 	void StartLerp(){
 		if (!isLerping) {
-			startingAlpha = spIcon.color.a;
+			startingAlpha = spPanel.color.a;
 			if (startingAlpha > 0) {
 				targetAlpha = 0;
 			} else {
