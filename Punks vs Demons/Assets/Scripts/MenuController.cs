@@ -16,7 +16,7 @@ public class MenuController : MonoBehaviour {
 	public Text songButton;
 	public Text songTitle;
 
-	private string[ , ] songTitleArray = {{"\"STORM\"\nNORMCORE", "\"SONGTILE\"\nARTIST"},
+	private string[ , ] songTitleArray = {{"\"STORM\"\nNORMCORE", "\"ABCD\"\nPUDGE"},
 		{"\"PUNK FOR FASHION\"\nPSYCHOTIC REACTION","\"SONGTILE\"\nARTIST" }};
 
 	// Use this for initialization
@@ -59,19 +59,21 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void fashionSong(){
-//		firstSong.image.color = Color.red;
-//		secondSong.image.color = Color.white;
 		songSettings.songChosen = true;
 		songSettings.bpm = 200f;
 		songSettings.songIndex = 0;
 	}
 
 	public void stormSong(){
-//		secondSong.image.color = Color.red;
-//		firstSong.image.color = Color.white;
 		songSettings.songChosen = true;
 		songSettings.bpm = 105f;
 		songSettings.songIndex = 1;
+	}
+
+	void abcdSong(){
+		songSettings.songChosen = true;
+		songSettings.bpm = 139f;
+		songSettings.songIndex = 2;
 	}
 
 	public void StageOne(){
@@ -99,7 +101,9 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void SongTwo(){
-
+		if (sceneController.stage == 1) {
+			abcdSong ();
+		}
 	}
 
 	private int songTitleIndex = 0;

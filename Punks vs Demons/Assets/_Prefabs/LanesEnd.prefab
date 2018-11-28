@@ -1591,8 +1591,10 @@ MonoBehaviour:
   maxHealth: 10
   healthBar: {fileID: 0}
   healthColor: {fileID: 0}
+  recharging: 0
   regenRate: 10
   memberPanel: {fileID: 0}
+  downedSprite: {fileID: 21300000, guid: 2fd96bdefac81cd43a8a8b3fa00e251d, type: 3}
   tankSpecial: {fileID: 114829425816354072}
   rechargeSpeed: 10
   spriteColor: {fileID: 0}
@@ -1740,8 +1742,10 @@ MonoBehaviour:
   maxHealth: 10
   healthBar: {fileID: 0}
   healthColor: {fileID: 0}
+  recharging: 0
   regenRate: 10
   memberPanel: {fileID: 0}
+  downedSprite: {fileID: 21300000, guid: 987bf05835a076045866655f3761ef86, type: 3}
   tankSpecial: {fileID: 114829425816354072}
   rechargeSpeed: 10
   spriteColor: {fileID: 0}
@@ -1810,8 +1814,10 @@ MonoBehaviour:
   maxHealth: 10
   healthBar: {fileID: 0}
   healthColor: {fileID: 0}
+  recharging: 0
   regenRate: 10
   memberPanel: {fileID: 0}
+  downedSprite: {fileID: 21300000, guid: 2c3f767dcce09e740bff2b5fdf7a8913, type: 3}
   tankSpecial: {fileID: 114829425816354072}
   rechargeSpeed: 10
   spriteColor: {fileID: 0}
@@ -1884,8 +1890,10 @@ MonoBehaviour:
   maxHealth: 10
   healthBar: {fileID: 0}
   healthColor: {fileID: 0}
+  recharging: 0
   regenRate: 10
   memberPanel: {fileID: 0}
+  downedSprite: {fileID: 21300000, guid: 55d6017d0edf1c947850b6bc9d600a20, type: 3}
   tankSpecial: {fileID: 114829425816354072}
   rechargeSpeed: 10
   spriteColor: {fileID: 0}

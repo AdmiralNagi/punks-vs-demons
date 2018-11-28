@@ -28,9 +28,10 @@ public class MemberHealth : MonoBehaviour {
 	private float rechargeG = 126f / 255f;
 	private float rechargeB = 49f / 255f;
 
-
+	private Sprite originalSprite;
 	// Use this for initialization
 	void Start () {
+		originalSprite = spriteColor.sprite;
 		originalColor = memberPanel.color;
 		currentHealth = maxHealth;
 		hpDisplay.text = currentHealth + "/" + maxHealth;
@@ -69,6 +70,7 @@ public class MemberHealth : MonoBehaviour {
 	}
 		
 	[SerializeField]private Image memberPanel;
+	[SerializeField]private Sprite downedSprite;
 	private Color originalColor;
 	private bool isFlashing = false;
 	void UpdateHealthBar(){
@@ -85,11 +87,11 @@ public class MemberHealth : MonoBehaviour {
 					StartCoroutine ("LowHealth");
 				}
 			} else if (recharging) {
-				spriteColor.color = Color.black;
+				spriteColor.sprite = downedSprite;
 				RechargeLerp ();
 				if (currentHealth >= maxHealth) {
 					healthColor.color = originalHealthColor;
-					spriteColor.color = Color.white;
+					spriteColor.sprite = originalSprite;
 					memberPanel.color = originalColor;
 					recharging = false;
 				}

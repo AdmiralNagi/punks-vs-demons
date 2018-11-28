@@ -21,7 +21,7 @@ public class SongCreator : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.Return)) {
-			System.IO.File.WriteAllLines(@"C:\Users\God\Desktop\Beats\storm.txt", beats.ToArray());
+			System.IO.File.WriteAllLines(@"C:\Users\God\Desktop\Beats\abcd.txt", beats.ToArray());
 		}
 	}
 
